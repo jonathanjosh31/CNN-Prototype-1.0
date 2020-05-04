@@ -76,4 +76,4 @@ classifier.add(MaxPooling2D(pool_size))
 <h6>pool_size</h6> - Size of the pooling Map which is going to be formed from the convolutional layers.Recommended size will be 2x2 since it is small as well the main info will still be preserved in each of the pooling layer.
 
 
-<h3>Project Status:<h3> Ongoing
+<h3>Project Status:</h3> Ongoing
