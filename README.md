@@ -1,11 +1,12 @@
 # CNN-Prototype-1.0
-Building a convolutional neural network to classify the given images by preserving their spatial structure 
+<h3>Building a convolutional neural network to classify the given images by preserving their spatial structure</h3>
 
 
 Note:Actually deep learning is used in many medical fields.
 
 Here we preserve the spatial structure of the images therefore wwe will be able to classify the images.
 
+<h4>Summary:</h4>
 This Repo is based on a very simple IMAGE CLASSIFICATION
  
 In this example we took the case of  cats and dogs.But  if we want to classify any other images,we just need to give the  
@@ -34,14 +35,45 @@ Since there is no type of categorical variable here we don't do any categorical 
 Hence the data preprocessing part which we used to do are done manually here.
 
 
-Step - 1:
+<h2>Step - 1:</h2>
 
 Importing required keras packages.
 1)Sequential : To initialise our neural network either a sequence of layers or as a seq of graphs
-2)Convolution2D : 
-3)
-4)
-5)
+2)Convolution2D : Used to make the convolution process,I.E adding the convolutional layers.Images are 2d,but some videos  can be 3D.Hence to deal with the images we use this package.
+3)MaxPooling2D : Used to make the pooling process.here we use max pooling.Hence this will add our pooling layers.
+4)Flatten : USed to flatten the pooling layers,hence giving as the input layers for the ANN which is going to be attached.
+5)Dense : To add fully connected layers in the ANN.
+
+<h2>Step 2 :</h2>
+
+Initialising the CNN which is ofcourse creating a classifier by creating a Sequential Object.
+
+<h2>Step 3 :</h2>
+
+Making the convolution process.
+
+Syntax:
+classifier.add(Conv2D(filters, input_shape(3,256,256), activation=None))
+
+filters - no of filters + (dimensionality(no of rows and col) of each filter). Filters are nothing but the no of feature detectors we are gonna add to our CNN.ANd in the CNN, No of feature maps = No of feature detectors.
+Commonly the no of feature detectors are given as 32 iif your working on your cpu.If your working on your GPU then you can add more feature detectors 
+
+input_shape = example input_shape(3,256,256) measn we are giving 3 channels which are RGB and images of size 256x256.But if you are on your CPU you can give 64x64.
+Also if you are using tensorflow backend it should be like input_shape(256,256,3)
+But if you are using theano backend it should be like input_shape(3,256,256) . I.E order channges in each backend.
+
+and activation is used here to apply rectifier function on this so that we give non-linearity to the image so that the image is preserved.
+
+<h2>Step 4 : </h2>
+
+Making the Pooling process.
+This pooling is mainly done to mainly reduce the no of nodes to be given in the ANN,
+so that the time complexity and as well as the computation time is reduced without losing the performance  
+
+Syntax:
+classifier.add(MaxPooling2D(pool_size))
+
+pool_size - Size of the pooling Map which is going to be formed from the convolutional layers.Recommended size will be 2x2 since it is small as well the main info will still be preserved in each of the pooling layer.
 
 
 Project Status: Ongoing
